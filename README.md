@@ -1,1 +1,1 @@
-# My-Library
+# Simple app from The Odin Project
