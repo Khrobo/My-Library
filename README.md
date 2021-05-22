@@ -1,1 +1,3 @@
-# Simple app from The Odin Project
+# Library 
+
+Simple app from The Odin Project
