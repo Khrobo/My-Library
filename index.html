@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Library</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <header>
+          <h1>My Library</h1>  
+        </header>
+        <div class="btn">
+            <button class="new-book">New Book</button>
+        </div>
+        <div class="book-info">
+            <form class="book-form">
+                <button class="remove">
+                    <i class="far fa-times-circle"></i>
+                </button>
+                <h4>Add New Book</h4>
+                <div class="inputs">
+                    <div class="book-input">
+                        <h5>Title</h5>
+                        <input class="input-btns title" type="text" placeholder="Title">
+                    </div>
+                    <div class="book-input">
+                        <h5>Author</h5>
+                        <input class="input-btns author" type="text" placeholder="Author">
+                    </div>
+                    <div class="book-input">
+                        <h5>Pages</h5>
+                        <input class="input-btns pages" type="number" placeholder="Pages">
+                    </div>
+                    <div class="book-input">
+                        <h5 class="read-header">Read</h5>
+                        <input class="input-btns read-check" type="checkbox" placeholder="Pages">
+                    </div>
+                    <div class="book-submit">
+                        <button class="submit-btn" type="submit">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="book-contain">
+            <div class="book">
+                <p class="book-name cycle">Life As We Knew It</p>
+                <p class="author-name cycle">By: Beth Pfeffer</p>
+                <p class="pages-num cycle">337 pages</p>
+                <button class="read book-btn">Not Read</button>
+                <button class="delete book-btn">Delete</button>
+            </div>
+            <div class="book">
+                <p class="book-name cycle">Divergent</p>
+                <p class="author-name cycle">By: Veronica Roth</p>
+                <p class="pages-num cycle">487 pages</p>
+                <button class="read book-btn">Not Read</button>
+                <button class="delete book-btn">Delete</button>
+            </div>
+            <div class="book">
+                <p class="book-name cycle">They Both Die at the End</p>
+                <p class="author-name cycle">By: Adam Silvera</p>
+                <p class="pages-num cycle">384 pages</p>
+                <button class="read book-btn">Not Read</button>
+                <button class="delete book-btn">Delete</button>
+            </div>
+        </div>
+    </body>
+    <script src="app.js"></script>
+</html>
+
+
+

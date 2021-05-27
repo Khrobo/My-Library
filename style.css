@@ -1,0 +1,166 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    background: #242424;
+}
+
+header {
+    background: #325453;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+h1 {
+    text-align: center;
+    color: #DCBE87;
+    text-transform: uppercase;
+    font-size: 2.8rem;
+}
+
+/* Book form for info */
+
+.book-info {
+    background: #202020;
+    width: 300px;
+    position: fixed;
+    left: 50%;
+    top: 17%;
+    transform: translate(-50%, 0);
+    padding: 1.5rem;
+    height: 385px;
+}
+.remove {
+    background: transparent;
+    color: red;
+    font-size: 1.5rem;
+    border-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.far {
+    pointer-events: none;
+}
+h4 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 1.2rem;
+}
+h5 {
+    margin-bottom: 0.3rem;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+}
+.inputs {
+    margin: 0 auto;
+    width: 250px;
+}
+.input-btns {
+    padding: .3rem;
+    width: 90%;
+}
+.read-header {
+    text-align: center;
+}
+.read-check {
+    margin-left: .8rem;
+}
+.book-submit {
+    text-align: center;
+    margin-top: 1rem;
+}
+.submit-btn {
+    background: green;
+    padding: .3rem;
+    border-color: transparent;
+    cursor: pointer;
+}
+.submit-btn:hover {
+    background: darkgreen;
+}
+
+/* End */
+
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 9.5rem;
+    width: 100px;
+    text-align: center;
+}
+.new-book {
+    padding: .7rem;
+    background: #EF5D58;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.new-book:hover {
+    background: red;
+}
+.book-contain {
+    margin-top: 3rem;
+    margin-right: auto;
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 10px;
+    width: 800px;
+}
+.book {
+    background: #AD6A34;
+    width: 230px;
+    height: 250px;
+    text-align: center;
+    font-size: 1.4rem;
+    padding: .4rem;
+    margin: 0 auto;
+}
+.book-btn {
+    padding: .5rem;
+    background: green;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 21px;
+}
+.read {
+    background: darkgrey;
+    margin-right: .3rem;
+}
+.read:hover {
+    background: grey;
+}
+.delete {
+    background: #EF5D58;
+    margin-left: .3rem;
+}
+.delete:hover {
+    background: red;
+}
+
+/* Javascript toggle styles */
+
+.appearance {
+    display: none;
+}
+
+.green {
+    background: green;
+}
+.green:hover {
+    background: darkgreen;
+}
+.grey {
+    background: darkgrey;
+}
+.grey:hover {
+    background: grey;
+}
+
+
