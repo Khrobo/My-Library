@@ -8,10 +8,8 @@ body {
 
 header {
     background: #325453;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    display: flex;
+    justify-content: center;
 }
 h1 {
     text-align: center;
@@ -31,6 +29,7 @@ h1 {
     transform: translate(-50%, 0);
     padding: 1.5rem;
     height: 385px;
+    z-index: 3;
 }
 .remove {
     background: transparent;
@@ -86,9 +85,7 @@ h5 {
 /* End */
 
 .btn {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 9.5rem;
+    margin: 5rem auto;
     width: 100px;
     text-align: center;
 }
@@ -111,6 +108,8 @@ h5 {
     grid-template-rows: repeat(1, 1fr);
     gap: 10px;
     width: 800px;
+    position: relative;
+    z-index: 1;
 }
 .book {
     background: #AD6A34;
@@ -149,7 +148,16 @@ h5 {
 .appearance {
     display: none;
 }
-
+.overlay {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
 .green {
     background: green;
 }
@@ -163,4 +171,29 @@ h5 {
     background: grey;
 }
 
+/* Media Queries */
 
+@media (min-width: 248px) {
+    .book-contain {
+        justify-content: center;
+        grid-template-columns: repeat(1, auto);
+        width: 100%;
+    }
+    .book-info {
+        width: 250px;
+    }
+}
+@media (min-width: 550px) {
+    .book-contain {
+        justify-content: center;
+        grid-template-columns: repeat(2, auto);
+        width: 100%;
+    }
+}
+@media (min-width: 976px) {
+    .book-contain {
+        justify-content: center;
+        grid-template-columns: repeat(3, auto);
+        width: 100%;
+    }
+}
