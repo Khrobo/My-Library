@@ -23,11 +23,13 @@ deletion.forEach((btns) => {
 window.addEventListener("load", addSavedBooks)
 
 // Constructor
-function Book(title, author, pages, read) {
-    this.bookTitle = title.value;
-    this.bookAuthor = author.value;
-    this.bookPages = pages.value;
-    this.bookRead = read.checked;
+class Book {
+    constructor(title, author, pages, read) {
+        this.bookTitle = title.value;
+        this.bookAuthor = author.value;
+        this.bookPages = pages.value;
+        this.bookRead = read.checked;
+    }
 }
 
 // Functions 
@@ -100,7 +102,7 @@ function storage() { // Stores items
 }
 function addSavedBooks() { // Adds the saved books to the dom or page
     let savedBooks = JSON.parse(window.localStorage.getItem("book"));
-
+    
     for (book in savedBooks) {
         bookAddition()
         myLibrary.push(savedBooks[book])
