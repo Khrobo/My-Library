@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="style.css" type="text/css">
     </head>
     <body>
+        <nav>
+            <button class="log-btn">Log In</button>
+        </nav>
         <header>
           <h1>My Library</h1>  
         </header>
@@ -68,6 +71,55 @@
         <div class="contain-overlay"></div>
     </body>
     <script src="app.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-analytics.js";
+        import { 
+            getAuth, 
+            GoogleAuthProvider, 
+            onAuthStateChanged,
+            signInWithPopup, 
+            signOut
+        } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyClAHAAFHUoFWnCS2WKT4f3_2lF4APO3Lo",
+            authDomain: "library-2974d.firebaseapp.com",
+            projectId: "library-2974d",
+            storageBucket: "library-2974d.appspot.com",
+            messagingSenderId: "425784309642",
+            appId: "1:425784309642:web:8d4ba0be0fb14ae7b87a73",
+            measurementId: "G-PJY5803LEL"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const newAuth = getAuth()
+        const analytics = getAnalytics(app);
+
+        console.log(analytics)
+
+        const prov = new GoogleAuthProvider()
+        const auth = getAuth()
+        document.querySelector('.log-btn').addEventListener('click', () => {
+            
+            console.log(auth, prov)
+            console.log('Protocol', window.location.protocol)
+            signInWithPopup(auth, prov)
+            .then((result) => {
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+                console.log(result)
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.customData.email;
+                const credential = GoogleAuthProvider.credentialFromError(error)
+            })
+
+        })
+    </script>
 </html>
 
 
