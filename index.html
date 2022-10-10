@@ -102,7 +102,7 @@
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                document.querySelector('.logIn-btn').style.display = ''
+                document.querySelector('.logIn-btn').style.display = 'none'
                 document.querySelector('.logOut-btn').style.display = 'block'
             } else {
                 document.querySelector('.logIn-btn').style.display = 'block'
