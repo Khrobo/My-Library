@@ -8,7 +8,8 @@
     </head>
     <body>
         <nav>
-            <button class="log-btn">Log In</button>
+            <button class="logIn-btn">Log In</button>
+            <button class="logOut-btn">Log Out</button>
         </nav>
         <header>
           <h1>My Library</h1>  
@@ -94,14 +95,22 @@
         };
 
         const app = initializeApp(firebaseConfig);
-        const newAuth = getAuth()
-        const analytics = getAnalytics(app);
-
-        console.log(analytics)
+        
 
         const prov = new GoogleAuthProvider()
         const auth = getAuth()
-        document.querySelector('.log-btn').addEventListener('click', () => {
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.querySelector('logIn-btn').style.display = ''
+                document.querySelector('logOut-btn').style.display = 'block'
+            } else {
+                document.querySelector('logIn-btn').style.display = 'block'
+                document.querySelector('logOut-btn').style.display = ''
+            }
+        })
+
+        document.querySelector('.logIn-btn').addEventListener('click', () => {
             
             console.log(auth, prov)
             console.log('Protocol', window.location.protocol)
@@ -117,7 +126,10 @@
                 const email = error.customData.email;
                 const credential = GoogleAuthProvider.credentialFromError(error)
             })
+        })
 
+        document.querySelector('logOut-btn').addEventListener('click', () => {
+            signOut(auth)
         })
     </script>
 </html>
