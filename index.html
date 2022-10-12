@@ -83,7 +83,7 @@
             signInWithPopup, 
             signOut
         } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
-        import { getFirestore, collection,  } from "https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js"
 
         const firebaseConfig = {
             apiKey: "AIzaSyClAHAAFHUoFWnCS2WKT4f3_2lF4APO3Lo",
@@ -115,18 +115,18 @@
         const setData = () => {
             let data = db;
 
-            // addDoc(collection(data, 'Book'), {
-            //     title: '',
-            //     author: '',
-            //     pages: '',
-            //     read: ''
-            // })
-            db.collection('Book').add({
+            addDoc(collection(data, 'Book'), {
                 title: '',
                 author: '',
                 pages: '',
                 read: ''
             })
+            // db.collection('Book').add({
+            //     title: '',
+            //     author: '',
+            //     pages: '',
+            //     read: ''
+            // })
 
             console.log('Data', data)
         }
