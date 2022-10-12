@@ -83,6 +83,7 @@
             signInWithPopup, 
             signOut
         } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"
 
         const firebaseConfig = {
             apiKey: "AIzaSyClAHAAFHUoFWnCS2WKT4f3_2lF4APO3Lo",
@@ -95,7 +96,7 @@
         };
 
         const app = initializeApp(firebaseConfig);
-        
+        const db = getFirestore(app)
 
         const prov = new GoogleAuthProvider()
         const auth = getAuth()
@@ -104,11 +105,25 @@
             if (user) {
                 document.querySelector('.logIn-btn').style.display = 'none'
                 document.querySelector('.logOut-btn').style.display = 'block'
+                setData()
             } else {
                 document.querySelector('.logIn-btn').style.display = 'block'
                 document.querySelector('.logOut-btn').style.display = ''
             }
         })
+
+        const setData = () => {
+            let data = db;
+
+            addDoc(collection(data, 'Book'), {
+                title: '',
+                author: '',
+                pages: '',
+                read: ''
+            })
+
+            console.log('Data', data)
+        }
 
         document.querySelector('.logIn-btn').addEventListener('click', () => {
             
