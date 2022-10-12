@@ -1,7 +1,7 @@
 // Variables 
 const removeBtn = document.querySelector(".remove");
 const bookInfo = document.querySelector(".submit-btn");
-const interface = document.querySelector(".new-book");
+const interfaceUI = document.querySelector(".new-book");
 const studied = document.querySelectorAll(".read");
 const deletion = document.querySelectorAll(".delete");
 let title = document.querySelector(".title");
@@ -13,7 +13,7 @@ let myLibrary = [];
 // Event Listeners
 removeBtn.addEventListener("click", remove);
 bookInfo.addEventListener("click", addBookToLibrary);
-interface.addEventListener("click", addUI);
+interfaceUI.addEventListener("click", addUI);
 studied.forEach((btn) => {
     btn.addEventListener("click", isStudied);
 });
@@ -201,3 +201,5 @@ function addUI() {
     document.querySelector(".contain-overlay").classList.toggle("overlay")
     document.querySelector(".book-info").classList.toggle("appearance")
 }
+
+export default Book
