@@ -121,6 +121,12 @@
                     read: false
                 })
                 console.log('DATA', data, 'ID:', data.id)
+
+                let getData = await getDocs(collection(db, 'Book'))
+                
+                getData.forEach((book) => {
+                    console.log('New Data', book.data())
+                })
             } catch (error) {
                 console.log(error)
             }
