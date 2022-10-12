@@ -112,15 +112,19 @@
             }
         })
 
-        const setData = () => {
-            let data = db;
-
-            addDoc(collection(data, 'Book'), {
-                title: '',
-                author: '',
-                pages: '',
-                read: ''
-            })
+        const setData = async () => {
+            try {
+                let data = await addDoc(collection(db, 'Book'), {
+                    title: '',
+                    author: '',
+                    pages: '',
+                    read: ''
+                })
+                console.log('DATA', data)
+            } catch (error) {
+                console.log(error)
+            }
+            
             // db.collection('Book').add({
             //     title: '',
             //     author: '',
