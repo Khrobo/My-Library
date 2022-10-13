@@ -103,9 +103,9 @@ function storage() { // Stores items
 function addSavedBooks() { // Adds the saved books to the dom or page
     let savedBooks = JSON.parse(window.localStorage.getItem("book"));
     
-    for (book in savedBooks) {
+    for (Book in savedBs) {
         bookAddition()
-        myLibrary.push(savedBooks[book])
+        myLibrary.push(savedBooks[Book])
     }
 }
 function isStudied(e) {
