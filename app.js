@@ -201,3 +201,5 @@ function addUI() {
     document.querySelector(".contain-overlay").classList.toggle("overlay")
     document.querySelector(".book-info").classList.toggle("appearance")
 }
+
+export { Book, bookAddition, myLibrary }
