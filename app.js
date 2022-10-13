@@ -150,16 +150,16 @@ function bookAddition() {
         document.querySelector(".book-contain").appendChild(div);
         div.className = "book"
         div.appendChild(p1)
-        p1.innerText = `${savedBooks[book].bookTitle}`
+        p1.innerText = `${savedBooks[Book].bookTitle}`
         p1.className = "book-name cycle"
         div.appendChild(p2)
-        p2.innerText = `By: ${savedBooks[book].bookAuthor}`
+        p2.innerText = `By: ${savedBooks[Book].bookAuthor}`
         p2.className = "author-name cycle"
         div.appendChild(p3);
-        p3.innerText = `${savedBooks[book].bookPages} pages`
+        p3.innerText = `${savedBooks[Book].bookPages} pages`
         p3.className = "pages-num cycle"
 
-        if (savedBooks[book].bookRead == false) {
+        if (savedBooks[Book].bookRead == false) {
             div.appendChild(btn1);
             btn1.className = "read book-btn";
             btn1.classList.add("grey");
