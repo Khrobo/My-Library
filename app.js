@@ -1,4 +1,4 @@
-import { setData, userData } from "./firebase";
+import { setData, userData } from "./firebase.js";
 
 // Variables 
 const removeBtn = document.querySelector(".remove");
@@ -95,7 +95,7 @@ function addBookToLibrary(event) {
     //Storage
     storage();
     if (userData) setData()
-    
+
     document.querySelector(".book-info").classList.toggle("appearance");
     document.querySelector("form").reset();
     document.querySelector(".contain-overlay").classList.toggle("overlay");
