@@ -22,18 +22,20 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
-
 const prov = new GoogleAuthProvider()
-const auth = getAuth()
+const auth = getAuth();
+let userData = false;
 
 onAuthStateChanged(auth, (user) => {
     if (user) {
         document.querySelector('.logIn-btn').style.display = 'none'
         document.querySelector('.logOut-btn').style.display = 'block'
-        setData()
+        userData = true
+        // USE SET DATA TO SET THE DATA INTO THE DATABASE
     } else {
         document.querySelector('.logIn-btn').style.display = 'block'
         document.querySelector('.logOut-btn').style.display = ''
+        userData = false;
     }
 })
 
@@ -48,22 +50,17 @@ const setData = async () => {
         console.log('DATA', data, 'ID:', data.id)
         console.log('Storage', window.localStorage)
 
-        let getData = await getDocs(collection(db, 'Book'))
-        
-        getData.forEach((book) => {
-            console.log('New Data', book.data())
-        })
     } catch (error) {
         console.log(error)
     }
-    
-    // db.collection('Book').add({
-    //     title: '',
-    //     author: '',
-    //     pages: '',
-    //     read: ''
-    // })
+}
 
+const getData = async () => {
+    let getData = await getDocs(collection(db, 'Book'))
+        
+    getData.forEach((book) => {
+        console.log('New Data', book.data())
+    })
 }
 
 document.querySelector('.logIn-btn').addEventListener('click', () => {
@@ -87,3 +84,5 @@ document.querySelector('.logIn-btn').addEventListener('click', () => {
 document.querySelector('.logOut-btn').addEventListener('click', () => {
     signOut(auth)
 })
+
+export { setData, userData }
