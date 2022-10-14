@@ -8,8 +8,8 @@ import {
     signOut
 } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js"
-import Book from "./app.js";
-import { bookAddition, myLibrary } from "./app.js";
+// import Book from "./app.js";
+// import { bookAddition, myLibrary } from "./app.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyClAHAAFHUoFWnCS2WKT4f3_2lF4APO3Lo",
@@ -43,10 +43,10 @@ onAuthStateChanged(auth, (user) => {
 const setData = async () => {
     try {
         let data = await addDoc(collection(db, 'Book'), {
-            title: Book.bookTitle,
-            author: Book.bookAuthor,
-            pages: Book.bookPages,
-            read: Book.bookRead
+            // title: Book.bookTitle,
+            // author: Book.bookAuthor,
+            // pages: Book.bookPages,
+            // read: Book.bookRead
         })
         console.log('DATA', data, 'ID:', data.id)
         console.log('Storage', window.localStorage)

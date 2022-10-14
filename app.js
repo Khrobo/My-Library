@@ -1,4 +1,4 @@
-import { setData, userData } from "./firebase.js";
+// import { setData, userData } from "./firebase.js";
 
 // Variables 
 const removeBtn = document.querySelector(".remove");
@@ -206,5 +206,5 @@ function addUI() {
     document.querySelector(".book-info").classList.toggle("appearance")
 }
 
-export default Book
-export {bookAddition, myLibrary }
+// export default Book
+// export {bookAddition, myLibrary }
