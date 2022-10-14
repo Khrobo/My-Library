@@ -37,7 +37,7 @@ class Book {
 // Functions 
 function addBookToLibrary(event) {
     event.preventDefault();
-    let bookItems = new Book(title, author, pages, read); // Parameters for users input
+    let bookItems = Book(title, author, pages, read); // Parameters for users input
     let bookSelect = document.querySelector(".book-contain")
 
     // Book items
