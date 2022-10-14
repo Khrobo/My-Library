@@ -25,13 +25,13 @@ deletion.forEach((btns) => {
 window.addEventListener("load", addSavedBooks)
 
 // Constructor
-class Book {
-    constructor(title, author, pages, read) {
-        this.bookTitle = title.value;
-        this.bookAuthor = author.value;
-        this.bookPages = pages.value;
-        this.bookRead = read.checked;
-    }
+function Book (title, author, pages, read) {
+    
+    this.bookTitle = title.value;
+    this.bookAuthor = author.value;
+    this.bookPages = pages.value;
+    this.bookRead = read.checked;
+
 }
 
 // Functions 
