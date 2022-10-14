@@ -33,11 +33,11 @@ class Book {
         this.bookRead = read.checked;
     }
 }
-const bookItems = new Book(title, author, pages, read);
+
 // Functions 
 function addBookToLibrary(event) {
     event.preventDefault();
-     // Parameters for users input
+    const bookItems = new Book(title, author, pages, read); // Parameters for users input
     let bookSelect = document.querySelector(".book-contain")
 
     // Book items
@@ -104,6 +104,7 @@ function addBookToLibrary(event) {
 function storage() { // Stores items
     window.localStorage.setItem("book", JSON.stringify(myLibrary));
 }
+window.localStorage.clear()
 function addSavedBooks() { // Adds the saved books to the dom or page
     let savedBooks = JSON.parse(window.localStorage.getItem("book"));
     
@@ -206,5 +207,4 @@ function addUI() {
     document.querySelector(".book-info").classList.toggle("appearance")
 }
 
-export default Book
-export {bookAddition, myLibrary }
+export { Book, bookAddition, myLibrary }
