@@ -205,4 +205,5 @@ function addUI() {
     document.querySelector(".book-info").classList.toggle("appearance")
 }
 
-export { Book, bookAddition, myLibrary }
+export default Book
+export {bookAddition, myLibrary }
