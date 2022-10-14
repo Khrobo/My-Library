@@ -59,8 +59,8 @@ const setData = async () => {
 const getData = async () => {
     let getData = await getDocs(collection(db, 'Book'))
         
-    getData.forEach((book) => {
-        console.log('New Data', book.data())
+    getData.forEach((bookName) => {
+        console.log('New Data', bookName.data())
     })
 }
 

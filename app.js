@@ -26,7 +26,7 @@ window.addEventListener("load", addSavedBooks)
 
 // Constructor
 class Book {
-    constructor (title, author, pages, read) {
+    constructor(title, author, pages, read) {
         this.bookTitle = title.value;
         this.bookAuthor = author.value;
         this.bookPages = pages.value;
@@ -37,7 +37,7 @@ class Book {
 // Functions 
 function addBookToLibrary(event) {
     event.preventDefault();
-    // const bookItems = new Book(title, author, pages, read); // Parameters for users input
+    const bookItems = new Book(title, author, pages, read); // Parameters for users input
     let bookSelect = document.querySelector(".book-contain")
 
     // Book items
@@ -52,16 +52,16 @@ function addBookToLibrary(event) {
     div.className = "book";
 
     div.appendChild(p1);
-    p1.innerText = `${Book.bookTitle}`;
+    p1.innerText = `${bookItems.bookTitle}`;
     p1.className = "book-name cycle"
     div.appendChild(p2);
-    p2.innerText = `By: ${Book.bookAuthor}`;
+    p2.innerText = `By: ${bookItems.bookAuthor}`;
     p2.classname = "author-name cycle"
     div.appendChild(p3);
-    p3.innerText = `${Book.bookPages} pages`;
+    p3.innerText = `${bookItems.bookPages} pages`;
     p3.className = "pages-num cycle"
     
-    if (Book.bookRead == false) {
+    if (bookItems.bookRead == false) {
         div.appendChild(btn1);
         btn1.className = "read book-btn";
         btn1.classList.add("grey");
@@ -79,10 +79,10 @@ function addBookToLibrary(event) {
     btn2.innerText = "Delete"
     btn2.addEventListener("click", deleteCard)
     
-    if (!(Book.bookTitle && Book.bookAuthor && Book.bookPages)) {
+    if (!(bookItems.bookTitle && bookItems.bookAuthor && bookItems.bookPages)) {
         let bookName = document.querySelectorAll(".book")
         for (let i=0; i<bookName.length; i++) {
-            if (Book.bookTitle == bookName[i].querySelector(".book-name").innerText) {
+            if (bookItems.bookTitle == bookName[i].querySelector(".book-name").innerText) {
                 bookName[i].remove();
             }
         }
@@ -90,12 +90,13 @@ function addBookToLibrary(event) {
     }
 
     // Adds books to the library array
-    myLibrary.push(Book); 
+    myLibrary.push(bookItems); 
 
     //Storage
     storage();
     if (userData) setData()
     console.log('Test', userData, myLibrary)
+
     document.querySelector(".book-info").classList.toggle("appearance");
     document.querySelector("form").reset();
     document.querySelector(".contain-overlay").classList.toggle("overlay");
