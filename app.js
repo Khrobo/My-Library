@@ -1,4 +1,4 @@
-// import { setData, userData } from "./firebase.js";
+import { setData, userData } from "./firebase.js";
 
 // Variables 
 const removeBtn = document.querySelector(".remove");
@@ -33,11 +33,11 @@ class Book {
         this.bookRead = read.checked;
     }
 }
-
+const bookItems = new Book(title, author, pages, read);
 // Functions 
 function addBookToLibrary(event) {
     event.preventDefault();
-    const bookItems = new Book(title, author, pages, read); // Parameters for users input
+     // Parameters for users input
     let bookSelect = document.querySelector(".book-contain")
 
     // Book items
@@ -206,5 +206,5 @@ function addUI() {
     document.querySelector(".book-info").classList.toggle("appearance")
 }
 
-// export default Book
-// export {bookAddition, myLibrary }
+export default Book
+export {bookAddition, myLibrary }
