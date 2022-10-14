@@ -26,7 +26,7 @@ window.addEventListener("load", addSavedBooks)
 
 // Constructor
 class Book {
-    constructor(title, author, pages, read) {
+    constructor (title, author, pages, read) {
         this.bookTitle = title.value;
         this.bookAuthor = author.value;
         this.bookPages = pages.value;
@@ -95,7 +95,7 @@ function addBookToLibrary(event) {
     //Storage
     storage();
     if (userData) setData()
-
+    console.log('Test', userData, myLibrary)
     document.querySelector(".book-info").classList.toggle("appearance");
     document.querySelector("form").reset();
     document.querySelector(".contain-overlay").classList.toggle("overlay");
