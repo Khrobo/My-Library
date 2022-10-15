@@ -94,7 +94,7 @@ function addBookToLibrary(event) {
 
     //Storage
     storage();
-    if (userData) setData()
+    if (userData) setData(bookItems)
     console.log('Test', userData, myLibrary)
 
     document.querySelector(".book-info").classList.toggle("appearance");
