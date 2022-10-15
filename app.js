@@ -110,10 +110,10 @@ function addSavedBooks() { // Adds the saved books to the dom or page
     let savedBooks = JSON.parse(window.localStorage.getItem("book"));
     
     console.log('Saved', savedBooks)
-    // for (Book in savedBooks) {
-    //     bookAddition()
-    //     myLibrary.push(savedBooks[Book])
-    // }
+    for (const book in savedBooks) {
+        bookAddition(book)
+        myLibrary.push(savedBooks[book])
+    }
 }
 function isStudied(e) {
     let readBook = new Book(title, author, pages, read);
@@ -145,7 +145,7 @@ function isStudied(e) {
         e.target.innerText = "Not Read";
     }
 }
-function bookAddition() {
+function bookAddition(item) {
         let savedBooks = JSON.parse(window.localStorage.getItem("book"));
         let div = document.createElement("div");
         let p1 = document.createElement("p");
@@ -157,16 +157,16 @@ function bookAddition() {
         document.querySelector(".book-contain").appendChild(div);
         div.className = "book"
         div.appendChild(p1)
-        p1.innerText = `${savedBooks[Book].bookTitle}`
+        p1.innerText = `${savedBooks[item].bookTitle}`
         p1.className = "book-name cycle"
         div.appendChild(p2)
-        p2.innerText = `By: ${savedBooks[Book].bookAuthor}`
+        p2.innerText = `By: ${savedBooks[item].bookAuthor}`
         p2.className = "author-name cycle"
         div.appendChild(p3);
-        p3.innerText = `${savedBooks[Book].bookPages} pages`
+        p3.innerText = `${savedBooks[item].bookPages} pages`
         p3.className = "pages-num cycle"
 
-        if (savedBooks[Book].bookRead == false) {
+        if (savedBooks[item].bookRead == false) {
             div.appendChild(btn1);
             btn1.className = "read book-btn";
             btn1.classList.add("grey");
@@ -184,6 +184,7 @@ function bookAddition() {
         btn2.innerText = "Delete"
         btn2.addEventListener("click", deleteCard)
 }
+
 function deleteCard(item) {
     let titleSearch = item.target.parentElement.querySelector(".book-name").innerText
     let deleteBooks = JSON.parse(window.localStorage.getItem("book"));
