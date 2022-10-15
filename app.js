@@ -101,17 +101,19 @@ function addBookToLibrary(event) {
     document.querySelector("form").reset();
     document.querySelector(".contain-overlay").classList.toggle("overlay");
 }
+
 function storage() { // Stores items
     window.localStorage.setItem("book", JSON.stringify(myLibrary));
 }
-window.localStorage.clear()
+
 function addSavedBooks() { // Adds the saved books to the dom or page
     let savedBooks = JSON.parse(window.localStorage.getItem("book"));
     
-    for (Book in savedBooks) {
-        bookAddition()
-        myLibrary.push(savedBooks[Book])
-    }
+    console.log('Saved', savedBooks)
+    // for (Book in savedBooks) {
+    //     bookAddition()
+    //     myLibrary.push(savedBooks[Book])
+    // }
 }
 function isStudied(e) {
     let readBook = new Book(title, author, pages, read);
