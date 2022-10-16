@@ -106,11 +106,11 @@ function storage() { // Stores items
     window.localStorage.setItem("book", JSON.stringify(myLibrary));
 }
 
-function addSavedBooks() { // Adds the saved books to the dom or page
+function addSavedBooks(book) { // Adds the saved books to the dom or page
     let savedBooks = JSON.parse(window.localStorage.getItem("book"));
     
     console.log('Saved', savedBooks)
-    for (const book in savedBooks) {
+    for (book in savedBooks) {
         bookAddition(book)
         myLibrary.push(savedBooks[book])
     }
@@ -210,4 +210,4 @@ function addUI() {
     document.querySelector(".book-info").classList.toggle("appearance")
 }
 
-export { Book, bookAddition, myLibrary }
+export { Book, bookAddition, myLibrary, addSavedBooks }
