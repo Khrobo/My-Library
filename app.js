@@ -156,6 +156,7 @@ function bookAddition(item) {
         let btn1 = document.createElement("button");
         let btn2 = document.createElement("button");
 
+        console.log('INSIDE BOOKADD', savedBooks)
         document.querySelector(".book-contain").appendChild(div);
         div.className = "book"
         div.appendChild(p1)
