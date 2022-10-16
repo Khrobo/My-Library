@@ -106,11 +106,11 @@ function storage() { // Stores items
     window.localStorage.setItem("book", JSON.stringify(myLibrary));
 }
 
-function addSavedBooks(book) { // Adds the saved books to the dom or page
+function addSavedBooks() { // Adds the saved books to the dom or page
     let savedBooks = JSON.parse(window.localStorage.getItem("book"));
     
     console.log('Saved', savedBooks)
-    for (book in savedBooks) {
+    for (const book in savedBooks) {
         bookAddition(book)
         myLibrary.push(savedBooks[book])
     }
@@ -146,7 +146,9 @@ function isStudied(e) {
     }
 }
 function bookAddition(item) {
-        let savedBooks = JSON.parse(window.localStorage.getItem("book"));
+        let savedBooks = !userData ? JSON.parse(window.localStorage.getItem("book"))[item]
+        : item ;
+
         let div = document.createElement("div");
         let p1 = document.createElement("p");
         let p2 = document.createElement("p");
@@ -157,16 +159,16 @@ function bookAddition(item) {
         document.querySelector(".book-contain").appendChild(div);
         div.className = "book"
         div.appendChild(p1)
-        p1.innerText = `${savedBooks[item].bookTitle}`
+        p1.innerText = `${savedBooks.bookTitle}`
         p1.className = "book-name cycle"
         div.appendChild(p2)
-        p2.innerText = `By: ${savedBooks[item].bookAuthor}`
+        p2.innerText = `By: ${savedBooks.bookAuthor}`
         p2.className = "author-name cycle"
         div.appendChild(p3);
-        p3.innerText = `${savedBooks[item].bookPages} pages`
+        p3.innerText = `${savedBooks.bookPages} pages`
         p3.className = "pages-num cycle"
 
-        if (savedBooks[item].bookRead == false) {
+        if (savedBooks.bookRead == false) {
             div.appendChild(btn1);
             btn1.className = "read book-btn";
             btn1.classList.add("grey");

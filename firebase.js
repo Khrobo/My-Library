@@ -32,6 +32,7 @@ onAuthStateChanged(auth, (user) => {
         document.querySelector('.logOut-btn').style.display = 'block'
         userData = true
         // USE SET DATA TO SET THE DATA INTO THE DATABASE
+        getData()
     } else {
         document.querySelector('.logIn-btn').style.display = 'block'
         document.querySelector('.logOut-btn').style.display = ''
@@ -50,7 +51,7 @@ const setData = async (book) => {
         console.log('DATA', data, 'ID:', data.id)
         console.log('Storage', window.localStorage)
 
-        getData()
+        
     } catch (error) {
         console.log(error)
     }
@@ -63,7 +64,7 @@ const getData = async () => {
         const getInfo = bookName.data();
         console.log('New Data', bookName.data(), bookName.data().title)
         
-        addSavedBooks(getInfo)
+        bookAddition(getInfo)
     })
 }
 
