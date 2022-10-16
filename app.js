@@ -93,7 +93,7 @@ function addBookToLibrary(event) {
     myLibrary.push(bookItems); 
 
     //Storage
-    storage();
+    if (!userData) storage();
     if (userData) setData(bookItems)
     console.log('Test', userData, myLibrary)
 

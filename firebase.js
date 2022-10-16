@@ -60,7 +60,8 @@ const getData = async () => {
     let savedData = await getDocs(collection(db, 'Book'))
         
     savedData.forEach((bookName) => {
-        console.log('New Data', bookName.data())
+        const getInfo = bookName.data();
+        console.log('New Data', bookName.data(), bookName.data().title)
     })
 }
 
