@@ -50,15 +50,16 @@ const setData = async (book) => {
         console.log('DATA', data, 'ID:', data.id)
         console.log('Storage', window.localStorage)
 
+        getData()
     } catch (error) {
         console.log(error)
     }
 }
 
 const getData = async () => {
-    let getData = await getDocs(collection(db, 'Book'))
+    let savedData = await getDocs(collection(db, 'Book'))
         
-    getData.forEach((bookName) => {
+    savedData.forEach((bookName) => {
         console.log('New Data', bookName.data())
     })
 }
