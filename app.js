@@ -145,6 +145,7 @@ function isStudied(e) {
         e.target.innerText = "Not Read";
     }
 }
+window.localStorage.clear()
 function bookAddition(item) {
         let savedBooks = !userData ? JSON.parse(window.localStorage.getItem("book"))[item]
         : item ; // THIS WORKS, BUT SAVED ITEMS ARE UNDER DIFFERENT PROPERTY NAMES
@@ -156,7 +157,7 @@ function bookAddition(item) {
         let btn1 = document.createElement("button");
         let btn2 = document.createElement("button");
 
-        console.log('INSIDE BOOKADD', savedBooks)
+        console.log('INSIDE SAVES', savedBooks)
         document.querySelector(".book-contain").appendChild(div);
         div.className = "book"
         div.appendChild(p1)
