@@ -147,7 +147,7 @@ function isStudied(e) {
 }
 function bookAddition(item) {
         let savedBooks = !userData ? JSON.parse(window.localStorage.getItem("book"))[item]
-        : item ;
+        : item ; // THIS WORKS, BUT SAVED ITEMS ARE UNDER DIFFERENT PROPERTY NAMES
 
         let div = document.createElement("div");
         let p1 = document.createElement("p");

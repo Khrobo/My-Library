@@ -43,10 +43,10 @@ onAuthStateChanged(auth, (user) => {
 const setData = async (book) => {
     try {
         let data = await addDoc(collection(db, 'Book'), {
-            title: book.bookTitle,
-            author: book.bookAuthor,
-            pages: book.bookPages,
-            read: book.bookRead
+            bookTitle: book.bookTitle,
+            bookAuthor: book.bookAuthor,
+            bookPages: book.bookPages,
+            bookRead: book.bookRead
         })
         console.log('DATA', data, 'ID:', data.id)
         console.log('Storage', window.localStorage)
