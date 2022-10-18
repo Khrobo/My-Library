@@ -147,7 +147,7 @@ function isStudied(e) {
 }
 window.localStorage.clear()
 function bookAddition(item) {
-        let savedBooks = !userData ? JSON.parse(window.localStorage.getItem("book"))[item]
+        let savedBooks = !userData && JSON.parse(window.localStorage.getItem('book')) ? JSON.parse(window.localStorage.getItem("book"))[item]
         : item ; 
 
 
