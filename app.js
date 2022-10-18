@@ -152,10 +152,10 @@ function isStudied(e) {
 }
 window.localStorage.clear()
 function bookAddition(item) {
-        let savedBooks = !userData && !JSON.parse(window.localStorage.getItem('book'))[item] ? JSON.parse(window.localStorage.getItem("book"))[item]
+        let savedBooks = !userData && JSON.parse(window.localStorage.getItem('book'))[item] ? JSON.parse(window.localStorage.getItem("book"))[item]
         : item ; 
 
-        console.log('TAKE', item, savedBooks, item[item])
+        console.log('TAKE', item, savedBooks, item[item], JSON.parse(window.localStorage.getItem("book"))[item])
         let div = document.createElement("div");
         let p1 = document.createElement("p");
         let p2 = document.createElement("p");
