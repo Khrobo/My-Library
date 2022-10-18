@@ -32,6 +32,7 @@ onAuthStateChanged(auth, (user) => {
         document.querySelector('.logOut-btn').style.display = 'block'
         userData = true
         // USE SET DATA TO SET THE DATA INTO THE DATABASE
+        document.querySelectorAll('.book').forEach(book => book.remove())
         getData()
     } else {
         document.querySelector('.logIn-btn').style.display = 'block'
