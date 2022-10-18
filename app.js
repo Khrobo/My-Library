@@ -94,8 +94,9 @@ function addBookToLibrary(event) {
 
     //Storage
     if (!userData) {
-        storage()
         myLibrary.push(bookItems);
+        storage()
+        
     };
     if (userData) setData(bookItems)
     console.log('Test', userData, myLibrary)
@@ -112,11 +113,12 @@ function storage() { // Stores items
 function addSavedBooks() { // Adds the saved books to the dom or page
     let savedBooks = JSON.parse(window.localStorage.getItem("book"));
     
-    console.log('Saved', savedBooks)
+    
     for (const book in savedBooks) {
         bookAddition(book)
         myLibrary.push(savedBooks[book])
     }
+    console.log('Saved', savedBooks)
 }
 function isStudied(e) {
     let readBook = new Book(title, author, pages, read);
