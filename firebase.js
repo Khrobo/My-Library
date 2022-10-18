@@ -38,10 +38,11 @@ onAuthStateChanged(auth, (user) => {
         document.querySelector('.logOut-btn').style.display = ''
         userData = false;
         document.querySelectorAll('.book').forEach(book => {
-            console.log('BOOK', book)
+            console.log('BOOK', book, book.querySelector('p'))
 
-            JSON.stringify(window.localStorage.getItem('book'))
+            window.localStorage.getItem('book') ? JSON.stringify(window.localStorage.getItem('book'))
             .findIndex(item => item.bookTitle !== book.querySelector('p').innerText ? book.remove() : null)
+            : null
         })
     }
 })
