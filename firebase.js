@@ -42,9 +42,9 @@ onAuthStateChanged(auth, (user) => {
             console.log('BOOK', book, book.querySelector('p'), JSON.parse(window.localStorage.getItem('book')))
 
             book.remove()
-            JSON.parse(window.localStorage.getItem("book")).forEach(book => {
+            JSON.parse(window.localStorage.getItem('book')) ? JSON.parse(window.localStorage.getItem("book")).forEach(book => {
                 console.log('INNER BOOK', book)
-            })
+            }) : null
             if (window.localStorage.getItem('book')) bookAddition(JSON.parse(window.localStorage.getItem('book')))
             
         })
