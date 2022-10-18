@@ -40,13 +40,10 @@ onAuthStateChanged(auth, (user) => {
         document.querySelectorAll('.book').forEach(book => {
             console.log('BOOK', book, book.querySelector('p'), JSON.stringify(window.localStorage.getItem('book')))
 
-            window.localStorage.getItem('book') ? JSON.stringify(window.localStorage.getItem('book'))
-            .findIndex(item => {
-                console.log('ITEM', item)
-                book.remove()
-                // item.bookTitle !== book.querySelector('p').innerText ? book.remove() : null
-            })
-            : null
+            book.remove()
+
+            if (window.localStorage.getItem('book')) bookAddition(JSON.stringify(window.localStorage.getItem('book')))
+            
         })
     }
 })
