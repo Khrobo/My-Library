@@ -37,6 +37,11 @@ onAuthStateChanged(auth, (user) => {
         document.querySelector('.logIn-btn').style.display = 'block'
         document.querySelector('.logOut-btn').style.display = ''
         userData = false;
+        document.querySelectorAll('.book').forEach(book => {
+            console.log('BOOK', book, getData())
+
+            // book.querySelector('p').innerText == 
+        })
     }
 })
 
