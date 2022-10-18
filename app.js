@@ -90,10 +90,13 @@ function addBookToLibrary(event) {
     }
 
     // Adds books to the library array
-    myLibrary.push(bookItems); 
+     
 
     //Storage
-    if (!userData) storage();
+    if (!userData) {
+        storage()
+        myLibrary.push(bookItems);
+    };
     if (userData) setData(bookItems)
     console.log('Test', userData, myLibrary)
 
@@ -150,7 +153,10 @@ function bookAddition(item) {
         let savedBooks = !userData && !JSON.parse(window.localStorage.getItem('book'))[item] ? JSON.parse(window.localStorage.getItem("book"))[item]
         : item ; 
 
-
+        console.log('TAKE', item.forEach(book => {
+            console.log('SECOND TAKE', book)
+            
+        }))
         let div = document.createElement("div");
         let p1 = document.createElement("p");
         let p2 = document.createElement("p");
