@@ -173,7 +173,7 @@ const getNewData = async () => {
     let savedData = await getDocs(collection(db, 'Book'))
     
     savedData.forEach(book => {
-        console.log('GET NEW', book)
+        console.log('GET NEW', book.data())
 
 
     })
