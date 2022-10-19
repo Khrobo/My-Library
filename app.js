@@ -160,12 +160,12 @@ function isStudied(e) {
 
 const setNewData = async (data, title) => {
     try {
-        title == data.bookTitle ? await addDoc(collection(db, 'Book'), {
+        await addDoc(collection(db, 'Book'), {
             bookTitle: data.bookTitle,
             bookAuthor: data.bookAuthor,
             bookPages: data.bookPages,
             bookRead: data.bookRead == false ? data.bookRead = true : data.bookRead = false
-        }) : null
+        })
         console.log('Check TITLE', title)
     } catch (error) {
         console.log(error)
@@ -176,7 +176,7 @@ const getNewData = async (title) => {
     let savedData = await getDocs(collection(db, 'Book'))
     
     savedData.forEach(book => {
-        console.log('GET NEW', book.data())
+        console.log('GET NEW', book.data(), book)
         
 
         if (title === book.data().bookTitle) {
