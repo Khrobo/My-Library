@@ -175,7 +175,9 @@ const getNewData = async (title) => {
         console.log('GET NEW', book.data())
         // setNewData(book.data(), title)
 
-        if (title === book.data().bookTitle) book.data().bookRead = true
+        if (title === book.data().bookTitle) {
+            console.log('TITLE', title)
+        }
     })
 }
 
