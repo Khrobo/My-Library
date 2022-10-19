@@ -173,8 +173,9 @@ const getNewData = async (title) => {
     
     savedData.forEach(book => {
         console.log('GET NEW', book.data())
+        // setNewData(book.data(), title)
 
-        setNewData(book.data(), title)
+        if (title === book.data().bookTitle) book.data().bookRead = true
     })
 }
 
