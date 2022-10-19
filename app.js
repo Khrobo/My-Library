@@ -139,7 +139,9 @@ function isStudied(e) {
             saveRead.bookRead = true;
         } else if (findTitle) {
             console.log('Study', readBook, saveRead)
-            setNewData()
+            // setNewData()
+            console.log('Nw Func', getNewData())
+            getNewData()
         } 
         
         window.localStorage.setItem("book", JSON.stringify(myLibrary))
@@ -157,14 +159,22 @@ function isStudied(e) {
     }
 }
 
-const setNewData = async () => {
+const setNewData = async (book) => {
     try {
         await addDoc(collection(db, 'Book'), {
-            bookRead: false ? true : false
+            bookRead: !false
         })
     } catch (error) {
         console.log(error)
     }
+}
+
+const getNewData = async () => {
+    await getDocs(collection(db, 'Book')).forEach(book => {
+        console.log('GET NEW', book)
+
+
+    })
 }
 
 window.localStorage.clear()
