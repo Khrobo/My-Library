@@ -1,4 +1,4 @@
-import { setData, userData, addDoc, getDocs, getData, db } from "./firebase.js";
+import { setData, userData, addDoc, getDocs, getData, db, collection } from "./firebase.js";
 
 // Variables 
 const removeBtn = document.querySelector(".remove");
