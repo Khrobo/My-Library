@@ -100,4 +100,4 @@ document.querySelector('.logOut-btn').addEventListener('click', () => {
     signOut(auth)
 })
 
-export { setData, userData }
+export { setData, getData, userData, addDoc, getDocs }

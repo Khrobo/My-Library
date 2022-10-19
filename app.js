@@ -1,4 +1,4 @@
-import { setData, userData } from "./firebase.js";
+import { setData, userData, addDoc, getDocs, getData } from "./firebase.js";
 
 // Variables 
 const removeBtn = document.querySelector(".remove");
@@ -136,10 +136,11 @@ function isStudied(e) {
                     item.bookRead = true;
                 }
             })
+            saveRead.bookRead = true;
         } else if (findTitle) {
-            console.log('Study', readBook, saveRead)
+            console.log('Study', readBook, saveRead, getData())
         } 
-        saveRead.bookRead = true;
+        
         window.localStorage.setItem("book", JSON.stringify(myLibrary))
     } else {
         myLibrary.findIndex(item => {
