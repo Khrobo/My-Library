@@ -158,11 +158,11 @@ function isStudied(e) {
     }
 }
 
-const setNewData = async (book) => {
+const setNewData = async (data, title) => {
     try {
-        await addDoc(collection(db, 'Book'), {
-            bookRead: book.bookRead == false ? book.bookRead = true : book.bookRead = false
-        })
+        title == data.bookTitle ? await addDoc(collection(db, 'Book'), {
+            bookRead: data.bookRead == false ? data.bookRead = true : data.bookRead = false
+        }) : null
     } catch (error) {
         console.log(error)
     }
@@ -174,7 +174,7 @@ const getNewData = async (title) => {
     savedData.forEach(book => {
         console.log('GET NEW', book.data())
 
-        if (title === book.data().bookTitle) setNewData(book.data())
+        setNewData(book.data(), title)
     })
 }
 
