@@ -130,11 +130,15 @@ function isStudied(e) {
         e.target.classList.toggle("green");
         e.target.innerText = "Read";
         readBook.bookRead = true;
-        myLibrary.findIndex(item => {
-            if (item.bookTitle == findTitle) {
-                item.bookRead = true;
-            }
-        })
+        if (!userData) {
+            myLibrary.findIndex(item => {
+                if (item.bookTitle == findTitle) {
+                    item.bookRead = true;
+                }
+            })
+        } else if (findTitle) {
+            console.log('Study', readBook, saveRead)
+        } 
         saveRead.bookRead = true;
         window.localStorage.setItem("book", JSON.stringify(myLibrary))
     } else {
