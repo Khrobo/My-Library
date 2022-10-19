@@ -166,6 +166,7 @@ const setNewData = async (data, title) => {
             bookPages: data.bookPages,
             bookRead: data.bookRead == false ? data.bookRead = true : data.bookRead = false
         }) : null
+        console.log('Check TITLE', title)
     } catch (error) {
         console.log(error)
     }
