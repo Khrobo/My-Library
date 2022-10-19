@@ -1,4 +1,4 @@
-import { setData, userData, addDoc, getDocs, getData } from "./firebase.js";
+import { setData, userData, addDoc, getDocs, getData, db } from "./firebase.js";
 
 // Variables 
 const removeBtn = document.querySelector(".remove");
@@ -138,7 +138,8 @@ function isStudied(e) {
             })
             saveRead.bookRead = true;
         } else if (findTitle) {
-            console.log('Study', readBook, saveRead, getData())
+            console.log('Study', readBook, saveRead)
+            setNewData()
         } 
         
         window.localStorage.setItem("book", JSON.stringify(myLibrary))
@@ -155,6 +156,17 @@ function isStudied(e) {
         e.target.innerText = "Not Read";
     }
 }
+
+const setNewData = async () => {
+    try {
+        await addDoc(collection(db, 'Book'), {
+            bookRead: false ? true : false
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 window.localStorage.clear()
 function bookAddition(item) {
         let savedBooks = !userData && JSON.parse(window.localStorage.getItem('book'))[item] ? JSON.parse(window.localStorage.getItem("book"))[item]
