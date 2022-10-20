@@ -181,6 +181,7 @@ const getNewData = async (title) => {
     })
 
     await updateDoc(newSavedData, {
+        bookTitle: title,
         bookRead: true
     })
 
