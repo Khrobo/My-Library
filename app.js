@@ -181,13 +181,15 @@ const getNewData = async (title, author, pages) => {
     await setDoc(newSavedData, {
         bookTitle: title,
         bookAuthor: author,
-        bookRead: false ? true : false
+        bookPages: pages,
+        bookRead: !!false
     })
 
     await updateDoc(newSavedData, {
         bookTitle: title,
         bookAuthor: author,
-        bookRead: false ? true : false
+        bookPages: pages,
+        bookRead: !!false
     })
 
     savedData.forEach(book => {
