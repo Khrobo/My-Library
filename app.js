@@ -175,21 +175,21 @@ const setNewData = async (data, title) => {
 const getNewData = async (title) => {
     const savedData = await getDocs(collection(db, 'Book'))
     
-    await setDoc(savedData, {
+    await updateDoc(savedData, {
         bookRead: false ? true : false
     })
-    savedData.forEach(book => {
-        console.log('GET NEW', book.data(), book)
+    // savedData.forEach(book => {
+    //     console.log('GET NEW', book.data(), book)
         
-        // if (title == book.data().bookTitle) {
-        //     await updateDoc
-        // }
+    //     // if (title == book.data().bookTitle) {
+    //     //     await updateDoc
+    //     // }
 
-        // if (title === book.data().bookTitle) {
-        //     console.log('TITLE', title)
-        //     setNewData(book.data(), title)
-        // }
-    })
+    //     // if (title === book.data().bookTitle) {
+    //     //     console.log('TITLE', title)
+    //     //     setNewData(book.data(), title)
+    //     // }
+    // })
 }
 
 const updateData = async () => {
