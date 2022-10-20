@@ -7,7 +7,7 @@ import {
     signInWithPopup, 
     signOut
 } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, updateDoc } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js"
+import { getFirestore, collection, addDoc, getDocs, updateDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js"
 import { addSavedBooks, Book, bookAddition, myLibrary } from "./app.js";
 
 const firebaseConfig = {
