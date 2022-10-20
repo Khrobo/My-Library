@@ -1,4 +1,4 @@
-import { setData, userData, addDoc, getDocs, getData, db, collection, updateDoc } from "./firebase.js";
+import { setData, userData, addDoc, getDocs, getData, db, collection, updateDoc, setDoc } from "./firebase.js";
 
 // Variables 
 const removeBtn = document.querySelector(".remove");
@@ -175,7 +175,7 @@ const setNewData = async (data, title) => {
 const getNewData = async (title) => {
     const savedData = await getDocs(collection(db, 'Book'))
     
-    await updateDoc(savedData, {
+    await setDoc(savedData, {
         bookRead: false ? true : false
     })
     savedData.forEach(book => {
