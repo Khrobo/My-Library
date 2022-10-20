@@ -189,7 +189,7 @@ const getNewData = async (title, author, pages) => {
         bookTitle: title,
         bookAuthor: author,
         bookPages: pages,
-        bookRead: !!false
+        bookRead: false || true
     })
 
     savedData.forEach(book => {
