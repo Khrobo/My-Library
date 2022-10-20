@@ -180,18 +180,22 @@ const getNewData = async (title) => {
         bookRead: false ? true : false
     })
 
-    // savedData.forEach(book => {
-    //     console.log('GET NEW', book.data(), book)
-        
-    //     // if (title == book.data().bookTitle) {
-    //     //     await updateDoc
-    //     // }
+    await updateDoc(newSavedData, {
+        bookRead: true
+    })
 
-    //     // if (title === book.data().bookTitle) {
-    //     //     console.log('TITLE', title)
-    //     //     setNewData(book.data(), title)
-    //     // }
-    // })
+    savedData.forEach(book => {
+        console.log('GET NEW', book.data(), book)
+        
+        // if (title == book.data().bookTitle) {
+        //     await updateDoc
+        // }
+
+        // if (title === book.data().bookTitle) {
+        //     console.log('TITLE', title)
+        //     setNewData(book.data(), title)
+        // }
+    })
 }
 
 const updateData = async () => {
