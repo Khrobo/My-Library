@@ -124,9 +124,7 @@ function isStudied(e) {
     let readBook = new Book(title, author, pages, read);
     let findTitle = e.target.parentElement.querySelector(".book-name").innerText;
     let saveRead = JSON.parse(window.localStorage.getItem("book"))
-    const author = e.target.parentElement.querySelector(".author-name").innerText
-    const pages = e.target.parentElement.querySelector(".pages-num").innerText
-    
+
     if (e.target.innerText == "Not Read") {
         e.target.classList.remove("grey");
         e.target.classList.toggle("green");
@@ -142,8 +140,9 @@ function isStudied(e) {
         } else if (findTitle) {
             console.log('Study', readBook, saveRead)
             // setNewData()
-            
-            getNewData(findTitle, author, pages)
+            const authorName = e.target.parentElement.querySelector(".author-name").innerText
+            const pagesNum = e.target.parentElement.querySelector(".pages-num").innerText
+            getNewData(findTitle, authorName, pagesNum)
         } 
         
         window.localStorage.setItem("book", JSON.stringify(myLibrary))
