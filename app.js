@@ -176,7 +176,7 @@ const setNewData = async (data, title) => {
 
 const getNewData = async (title, author, pages) => {
     // const savedData = await getDocs(collection(db, 'Book'))
-    const newSavedData = doc(db, 'Book', `Rice`)
+    const newSavedData = doc(db, 'Book', title)
 
     await setDoc(newSavedData, {
         bookTitle: title,

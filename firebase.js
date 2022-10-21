@@ -52,7 +52,7 @@ onAuthStateChanged(auth, (user) => {
 
 const setData = async (book) => {
     try {
-        let data = await addDoc(collection(db, 'Book'), {
+        let data = await addDoc(collection(db, 'Book', book.bookTitle), {
             bookTitle: book.bookTitle,
             bookAuthor: book.bookAuthor,
             bookPages: book.bookPages,
