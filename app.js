@@ -124,7 +124,9 @@ function isStudied(e) {
     let readBook = new Book(title, author, pages, read);
     let findTitle = e.target.parentElement.querySelector(".book-name").innerText;
     let saveRead = JSON.parse(window.localStorage.getItem("book"))
-
+    const author = e.target.parentElement.querySelector(".author-name").innerText
+    const pages = e.target.parentElement.querySelector(".pages-num").innerText
+    
     if (e.target.innerText == "Not Read") {
         e.target.classList.remove("grey");
         e.target.classList.toggle("green");
@@ -140,8 +142,7 @@ function isStudied(e) {
         } else if (findTitle) {
             console.log('Study', readBook, saveRead)
             // setNewData()
-            const author = e.target.parentElement.querySelector(".author-name").innerText
-            const pages = e.target.parentElement.querySelector(".pages-num").innerText
+            
             getNewData(findTitle, author, pages)
         } 
         
@@ -175,8 +176,8 @@ const setNewData = async (data, title) => {
 }
 
 const getNewData = async (title, author, pages) => {
-    const savedData = await getDocs(collection(db, 'Book'))
-    const newSavedData = doc(db, 'Book', title)
+    // const savedData = await getDocs(collection(db, 'Book'))
+    const newSavedData = doc(db, 'Book', `${title}`)
 
     await setDoc(newSavedData, {
         bookTitle: title,
