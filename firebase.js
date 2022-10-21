@@ -58,7 +58,7 @@ const setData = async (book) => {
             bookPages: book.bookPages,
             bookRead: book.bookRead
         })
-        console.log('DATA', data, 'ID:', data.id)
+        console.log('DATA', data)
         console.log('Storage', window.localStorage)
 
         
