@@ -183,7 +183,7 @@ const getNewData = async (title, author, pages) => {
         bookAuthor: author,
         bookPages: pages,
         bookRead: false || true
-    })
+    }, { merge: true })
 
     await updateDoc(newSavedData, {
         bookTitle: title,
