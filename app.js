@@ -1,4 +1,4 @@
-import { setData, userData, addDoc, getDocs, getData, db, collection, updateDoc, setDoc, doc } from "./firebase.js";
+import { setData, userData, addDoc, getDocs, getData, db, collection, updateDoc, setDoc, doc, deleteDoc } from "./firebase.js";
 
 // Variables 
 const removeBtn = document.querySelector(".remove");
@@ -142,7 +142,7 @@ function isStudied(e) {
             // setNewData()
             const authorName = e.target.parentElement.querySelector(".author-name").innerText
             const pagesNum = e.target.parentElement.querySelector(".pages-num").innerText
-            getNewData(findTitle, authorName, pagesNum)
+            setNewData(findTitle, authorName, pagesNum)
         } 
         
         window.localStorage.setItem("book", JSON.stringify(myLibrary))
@@ -160,21 +160,9 @@ function isStudied(e) {
     }
 }
 
-const setNewData = async (data, title) => {
-    try {
-        await addDoc(collection(db, 'Book'), {
-            bookTitle: data.bookTitle,
-            bookAuthor: data.bookAuthor,
-            bookPages: data.bookPages,
-            bookRead: data.bookRead == false ? data.bookRead = true : data.bookRead = false
-        })
-        console.log('Check TITLE', title)
-    } catch (error) {
-        console.log(error)
-    }
-}
 
-const getNewData = async (title, author, pages) => {
+
+const setNewData = async (title, author, pages) => {
     // const savedData = await getDocs(collection(db, 'Book'))
     const newSavedData = doc(db, 'Book', title)
 
@@ -191,23 +179,6 @@ const getNewData = async (title, author, pages) => {
         bookPages: pages,
         bookRead: false || true
     })
-
-    savedData.forEach(book => {
-        console.log('GET NEW', book.data(), book)
-        
-        // if (title == book.data().bookTitle) {
-        //     await updateDoc
-        // }
-
-        // if (title === book.data().bookTitle) {
-        //     console.log('TITLE', title)
-        //     setNewData(book.data(), title)
-        // }
-    })
-}
-
-const updateData = async () => {
-
 }
 
 window.localStorage.clear()
@@ -260,6 +231,7 @@ function deleteCard(item) {
     let deleteBooks = JSON.parse(window.localStorage.getItem("book"));
 
     item.target.parentElement.remove()
+    if (userData) deleteData(titleSearch)
     for (let i in myLibrary) {
         if (titleSearch == myLibrary[i].bookTitle) {
             myLibrary.splice(myLibrary.findIndex(e => e.bookTitle == titleSearch), 1)
@@ -268,6 +240,11 @@ function deleteCard(item) {
         }
     }
 }
+
+const deleteData = async book => {
+    await deleteDoc(doc(db, 'Book', book))
+}
+
 function remove(e) {
     e.preventDefault();
     document.querySelector(".book-info").classList.toggle("appearance");

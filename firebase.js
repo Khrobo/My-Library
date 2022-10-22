@@ -7,7 +7,7 @@ import {
     signInWithPopup, 
     signOut
 } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, setDoc, doc } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js"
+import { getFirestore, collection, addDoc, getDocs, updateDoc, setDoc, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js"
 import { addSavedBooks, Book, bookAddition, myLibrary } from "./app.js";
 
 const firebaseConfig = {
@@ -52,14 +52,12 @@ onAuthStateChanged(auth, (user) => {
 
 const setData = async (book) => {
     try {
-        let data = await setDoc(doc(db, 'Book', book.bookTitle), {
+        await setDoc(doc(db, 'Book', book.bookTitle), {
             bookTitle: book.bookTitle,
             bookAuthor: book.bookAuthor,
             bookPages: book.bookPages,
             bookRead: book.bookRead
         })
-        console.log('DATA', data)
-        console.log('Storage', window.localStorage)
 
         
     } catch (error) {
@@ -100,4 +98,4 @@ document.querySelector('.logOut-btn').addEventListener('click', () => {
     signOut(auth)
 })
 
-export { setData, getData, userData, addDoc, getDocs, db, app, collection, updateDoc, setDoc, doc }
+export { setData, getData, userData, addDoc, getDocs, db, app, collection, updateDoc, setDoc, doc, deleteDoc }
