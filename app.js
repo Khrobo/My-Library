@@ -249,7 +249,7 @@ const deleteData = async book => {
         bookAuthor: author,
         bookPages: pages,
         // bookRead: false || true
-    }, { merge: true })
+    })
 
     await updateDoc(newSavedData, {
         bookTitle: title,
