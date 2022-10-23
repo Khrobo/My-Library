@@ -1,4 +1,4 @@
-import { setData, userData, addDoc, getDocs, getData, db, collection, updateDoc, setDoc, doc, deleteDoc } from "./firebase.js";
+import { setData, userData, db, updateDoc, setDoc, doc, deleteDoc } from "./firebase.js";
 
 // Variables 
 const removeBtn = document.querySelector(".remove");
@@ -89,9 +89,6 @@ function addBookToLibrary(event) {
         return;
     }
 
-    // Adds books to the library array
-     
-
     //Storage
     if (!userData) {
         myLibrary.push(bookItems);
@@ -99,7 +96,6 @@ function addBookToLibrary(event) {
         
     };
     if (userData) setData(bookItems)
-    console.log('Test', userData, myLibrary)
 
     document.querySelector(".book-info").classList.toggle("appearance");
     document.querySelector("form").reset();
@@ -113,12 +109,10 @@ function storage() { // Stores items
 function addSavedBooks() { // Adds the saved books to the dom or page
     let savedBooks = JSON.parse(window.localStorage.getItem("book"));
     
-    
     for (const book in savedBooks) {
         bookAddition(book)
         myLibrary.push(savedBooks[book])
     }
-    console.log('Saved', savedBooks)
 }
 function isStudied(e) {
     let readBook = new Book(title, author, pages, read);
@@ -160,10 +154,7 @@ function isStudied(e) {
     }
 }
 
-
-
 const setNewData = async (title, author, pages) => {
-    // const savedData = await getDocs(collection(db, 'Book'))
     const newSavedData = doc(db, 'Book', title)
 
     await setDoc(newSavedData, {
@@ -186,7 +177,6 @@ function bookAddition(item) {
         let savedBooks = !userData && JSON.parse(window.localStorage.getItem('book'))[item] ? JSON.parse(window.localStorage.getItem("book"))[item]
         : item ; 
 
-        // console.log('TAKE', item, savedBooks, item[item], JSON.parse(window.localStorage.getItem("book"))[item])
         let div = document.createElement("div");
         let p1 = document.createElement("p");
         let p2 = document.createElement("p");
@@ -243,10 +233,6 @@ function deleteCard(item) {
 
 const deleteData = async book => {
     await deleteDoc(doc(db, 'Book', book))
-
-    // await setDoc(newSavedData)
-
-    // await updateDoc(newSavedData)
 }
 
 function remove(e) {

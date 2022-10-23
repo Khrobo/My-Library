@@ -1,5 +1,4 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-analytics.js";
 import { 
     getAuth, 
     GoogleAuthProvider, 
@@ -8,7 +7,7 @@ import {
     signOut
 } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, getDocs, updateDoc, setDoc, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.11.0/firebase-firestore.js"
-import { addSavedBooks, Book, bookAddition, myLibrary } from "./app.js";
+import { bookAddition } from "./app.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyClAHAAFHUoFWnCS2WKT4f3_2lF4APO3Lo",
@@ -31,7 +30,6 @@ onAuthStateChanged(auth, (user) => {
         document.querySelector('.logIn-btn').style.display = 'none'
         document.querySelector('.logOut-btn').style.display = 'block'
         userData = true
-        // USE SET DATA TO SET THE DATA INTO THE DATABASE
         document.querySelectorAll('.book').forEach(book => book.remove())
         getData()
     } else {
@@ -58,8 +56,6 @@ const setData = async (book) => {
             bookPages: book.bookPages,
             bookRead: book.bookRead
         })
-
-        
     } catch (error) {
         console.log(error)
     }
@@ -76,22 +72,9 @@ const getData = async () => {
     })
 }
 
-document.querySelector('.logIn-btn').addEventListener('click', () => {
-    
-    console.log(auth, prov)
-    console.log('Protocol', window.location.protocol)
+document.querySelector('.logIn-btn').addEventListener('click', () => {    
     signInWithPopup(auth, prov)
-    .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const user = result.user;
-        console.log('Result', result)
-    }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(error)
-    })
+    
 })
 
 document.querySelector('.logOut-btn').addEventListener('click', () => {
