@@ -6,6 +6,21 @@ body {
     background: #242424;
 }
 
+nav {
+    display: flex;
+    justify-content: flex-end;
+    background: #325453;
+}
+
+.logOut-btn, .logIn-btn {
+    padding: .5em;
+    color: #DCBE87;
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 1.2rem;
+}
+
 .logOut-btn {
     display: none;
 }
