@@ -37,12 +37,9 @@ onAuthStateChanged(auth, (user) => {
         document.querySelector('.logOut-btn').style.display = ''
         userData = false;
         document.querySelectorAll('.book').forEach(book => {
-            console.log('BOOK', book, book.querySelector('p'), JSON.parse(window.localStorage.getItem('book')))
-
             book.remove()
         })
         JSON.parse(window.localStorage.getItem('book')) ? JSON.parse(window.localStorage.getItem("book")).forEach(book => {
-            console.log('INNER BOOK', book)
             bookAddition(book)
         }) : null 
     }
@@ -66,7 +63,6 @@ const getData = async () => {
         
     savedData.forEach((bookName) => {
         const getInfo = bookName.data();
-        console.log('New Data', bookName.data(), bookName)
         
         bookAddition(getInfo)
     })
