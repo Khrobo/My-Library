@@ -242,7 +242,7 @@ function deleteCard(item) {
 }
 
 const deleteData = async book => {
-    const bookData = await deleteDoc(doc(db, 'Book', book))
+    await deleteDoc(doc(db, 'Book', book))
 
     // await setDoc(newSavedData)
 
